@@ -1,0 +1,59 @@
+*::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, #text {
+    text-align:  center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    padding: 2px;
+    margin-left: 38%; 
+    margin-top: 20px;
+    width: 23%;
+    border: 1px solid wheat;
+}
+
+.grid-item{
+
+    border: 1px solid black;
+    width: 100px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 10px;
+    background-color:#fff;
+  
+}
+
+body{
+    background-color: lightblue;
+    
+}
+
+#btn{
+    
+    margin-top: 20px;
+    font-size: 25px;
+    background-color: black;
+    color: Gold;
+}
+
+#btn:hover{
+    background-color: white;
+    color: red;
+}
+
+form{
+    display: inline;
+    margin-left: 46%;
+}
+
+#text{
+    font-size: 20px;
+}
