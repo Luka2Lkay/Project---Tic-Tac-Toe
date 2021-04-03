@@ -15,7 +15,6 @@ h1, #text {
     margin-left: 38%; 
     margin-top: 20px;
     width: 23%;
-    border: 1px solid wheat;
 }
 
 .grid-item{
@@ -27,13 +26,13 @@ h1, #text {
     align-items: center;
     justify-content: center;
     bottom: 10px;
-    background-color:#fff;
-  
+    background-color:#fff; 
+    margin-left: 28px;
+    font-size: 30px;
 }
 
 body{
     background-color: lightblue;
-    
 }
 
 #btn{

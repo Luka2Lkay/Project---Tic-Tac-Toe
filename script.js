@@ -1,22 +1,15 @@
 
-
-
-
 const board = (() =>{
-const player1Name = prompt('Enter Player 1\'s name: ');
-const player2Name = prompt('Enter Player 2\'s name: ')
 const player1 = 'X';
 const player2 = 'O';
 const gameStatus = document.getElementById('text');
-const winMessage = () => `${gamePlay.currentPlayerName} has won!`;
-const drawMessage = () => 'It\'s a draw';
-return{player1,player2, gameStatus, winMessage,drawMessage, player1Name,player2Name}
+return{player1,player2, gameStatus, player1,player2}
 })();
 
 const gamePlay = (() =>{
-   
+    const drawMessage = () => 'It\'s a draw';
+    const winMessage = () => `${currentPlayer} has won!`;
     let currentPlayer = board.player1;
-    let currentPlayerName = board.player1Name;
     let gameActive = true;
     let gameState = ['','','','','','','','',''];
 
@@ -34,10 +27,10 @@ const gamePlay = (() =>{
     const PlayerChange = () =>{
         if(currentPlayer === board.player1){
             currentPlayer = board.player2;
-            currentPlayerName = board.player2Name;
+            currentPlayerName = board.player2;
         }else{
             currentPlayer = board.player1;
-            currentPlayerName = board.player1Name;
+            currentPlayerName = board.player1;
         }
     board.gameStatus.textContent = playerTurn(); 
     }
@@ -78,28 +71,30 @@ const gamePlay = (() =>{
 
          }
         if(roundWon){
-            board.gameStatus.textContent = board.winMessage();
+            board.gameStatus.textContent = winMessage();
             gameActive = false;
             return;
         }
-        let roundDraw = !gameState.includes('');
-        if (roundDraw){
-            gameStatus.textContent = board.drawMessage();
+        
+        if (!gameState.includes('')){
+            board.gameStatus.textContent = drawMessage();
             gameActive = false;
             return;
         }
     PlayerChange();
 }
 
-const playerTurn = () => `It's ${currentPlayerName}'s turn`;
+const playerTurn = () => `It's ${currentPlayer}'s turn`;
     board.gameStatus.textContent = playerTurn();
     const CellPlayed = (clickedCell, clickedCellIndex) =>{
         gameState[clickedCellIndex] = currentPlayer;
         clickedCell.textContent = currentPlayer;
     }
 document.querySelectorAll('.grid-item').forEach(cell => cell.addEventListener('click',CellClick));
+
 document.getElementById('btn').addEventListener('click',RestartGame);
-return{currentPlayer, currentPlayerName}
+
+return{currentPlayer, winMessage, drawMessage}
 })();
 
 
